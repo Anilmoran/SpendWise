@@ -10,7 +10,6 @@ using System.Data;
 using System.Linq;
 using LiveCharts;
 using LiveCharts.Wpf;
-// PDF İÇİN GEREKLİ KÜTÜPHANELER:
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -32,7 +31,6 @@ namespace FinAsist
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-            // QuestPDF Lisans Ayarı (Kişisel projeler için ücretsizdir)
             QuestPDF.Settings.License = LicenseType.Community;
 
             ModeliEgit();
@@ -174,7 +172,6 @@ namespace FinAsist
             ChartHarcamalar.Series = grafikSerileri;
         }
 
-        // 🚨 YENİ EKLENEN PDF OLUŞTURMA METODU
         private void BtnPdfIndir_Click(object sender, RoutedEventArgs e)
         {
             if (!mevcutHarcamalar.Any())
@@ -256,7 +253,6 @@ namespace FinAsist
 
                     MessageBox.Show("PDF Raporu başarıyla oluşturuldu!", "Başarılı", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    // İşlem bitince PDF'i otomatik açarak kullanıcıya gösteriyoruz
                     System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(sfd.FileName) { UseShellExecute = true });
                 }
                 catch (Exception ex)
